@@ -9,6 +9,10 @@ class getScriptClass
   public $kategori="Desserts - Bakery > turkish-delight"; //zorunlu alan buraya kategoriyi ver.
   public $urlNone = "turkish-delight"; //zorunlu alan oluşturulacak dosya adı xml
   public $webPageURL = "https://www.gourmeturca.com/turkish-delight?ps=9"; //zorunlu alan
+  public $webDomain = "https://www.gourmeturca.com";
+
+
+  public $aHrefYolu = '.catalogWrapper .row  .detailLink'; //ilk gösterimdeki HREF tagı
 
 
 
@@ -43,7 +47,7 @@ class getScriptClass
 
     /* HTML dom */
     
-    public $webDomain = "https://www.gourmeturca.com";
+    
 
     function connectWebWage(){
       return file_get_html($this->webPageURL);
@@ -61,7 +65,7 @@ class getScriptClass
 
       $urunler = array(); //tekrar ürünleri kapatır.
 
-      foreach($html->find(".catalogWrapper .row  .detailLink") as $element){
+      foreach($html->find($this->aHrefYolu) as $element){
        //tekrar ürünlerin önüne geçer.
         if(!in_array($element->href,$urunler))  $xmlData.=$this->getProductData($element->href)."\n";
         $urunler[] = $element->href;
@@ -138,10 +142,7 @@ class getScriptClass
 
 
       $urunMarka = $html->find($markaDiv,0)->innertext;
-      $urunMarka = str_replace("Gourmeturca","naturalturca",$urunMarka);
-      $urunMarka = str_replace("gourmeturca","naturalturca",$urunMarka);
-      $urunMarka = str_replace("gourme turca","naturalturca",$urunMarka);
-      $urunMarka = str_replace("Gourme turca","naturalturca",$urunMarka);
+ 
 
       return $this->createFolderXML($urunAdi,$urunDetay,$urunMarka,$indirimsizFiyat,$indirimliFiyat,$xmlImg);
 
