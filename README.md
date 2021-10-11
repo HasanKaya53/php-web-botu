@@ -26,10 +26,10 @@
 </ul>
 
 
-<p> <b>$kategori </b> bildiğiniz ürünün kategorisi. kendi sisteminize göre düzenleyebilirsiniz.
-<b>$urlNone XML </b>çıktısının adı.
-<b>$webPageURL</b> ise gidilecek sitenin URLsi..
-<b>$aHrefYolu </b>ise tüm ürünlerin listelendiği ekrandaki urlyi tutan değişken.
+<p> <b>$kategori </b> bildiğiniz ürünün kategorisi. kendi sisteminize göre düzenleyebilirsiniz. <br>
+<b>$urlNone XML </b>çıktısının adı. <br>
+<b>$webPageURL</b> ise gidilecek sitenin URLsi.. <br>
+<b>$aHrefYolu </b>ise tüm ürünlerin listelendiği ekrandaki urlyi tutan değişken. <br>
 <b>$webDomain</b> ise sistemin ham urlsi </p>
 
 
